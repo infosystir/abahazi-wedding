@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Amanda &amp; [Partner Name] – Wedding Info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Font (optional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-alt: #020617;
+      --accent: #f97316;
+      --accent-soft: rgba(249, 115, 22, 0.15);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --card-bg: rgba(15, 23, 42, 0.9);
+      --border-subtle: rgba(148, 163, 184, 0.35);
+      --radius-lg: 18px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.7);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Work Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, #1e293b, #020617 50%),
+        radial-gradient(circle at bottom right, #0f172a, #000000 65%);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 0 16px 50px;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 30px auto 60px;
+    }
+
+    header {
+      text-align: center;
+      padding: 32px 16px 24px;
+    }
+
+    header h1 {
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-weight: 700;
+      font-size: clamp(2.3rem, 4vw, 3rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    header h1 span {
+      color: var(--accent);
+    }
+
+    header p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .date-location {
+      margin-top: 10px;
+      font-size: 0.96rem;
+      color: #e5e7eb;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    /* Top nav */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.75),
+        transparent
+      );
+      border-radius: 999px;
+      margin: 12px auto 28px;
+      max-width: 880px;
+      padding: 8px 10px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .nav-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: center;
+      list-style: none;
+    }
+
+    .nav-list a {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      text-decoration: none;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: all 0.2s ease-out;
+      white-space: nowrap;
+    }
+
+    .nav-list a:hover {
+      color: var(--text);
+      border-color: var(--accent);
+      background: rgba(15, 23, 42, 0.8);
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.9);
+    }
+
+    /* Layout */
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr);
+      gap: 18px;
+    }
+
+    @media (min-width: 900px) {
+      main {
+        grid-template-columns: minmax(0, 3fr) minmax(260px, 1.15fr);
+        align-items: flex-start;
+      }
+    }
+
+    /* Sections / cards */
+    section {
+      margin-bottom: 16px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 20px 22px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, var(--accent-soft), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(56, 189, 248, 0.08), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card h2 span.tag {
+      font-family: "Work Sans", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.6rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(249, 115, 22, 0.4);
+      color: var(--accent);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .card p,
+    .card li {
+      font-size: 0.93rem;
+      line-height: 1.6;
+      color: #e5e7eb;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .timeline-list li + li,
+    .hotel-list li + li {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(148, 163, 184, 0.5);
+    }
+
+    .label-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.85);
+      margin-bottom: 5px;
+    }
+
+    .time {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .hotel-name {
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .hotel-address {
+      font-size: 0.87rem;
+      color: var(--muted);
+    }
+
+    .small-heading {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.86rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.18s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, #fb923c, #ec4899);
+      color: #0f172a;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(248, 113, 113, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(248, 113, 113, 0.55);
+    }
+
+    .btn-outline {
+      border-color: rgba(148, 163, 184, 0.8);
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .note-box {
+      border-radius: 12px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      padding: 10px 12px;
+      margin-top: 10px;
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Sidebar */
+    .sidebar-card {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.98));
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 16px 18px;
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 82px;
+    }
+
+    .sidebar-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .sidebar-card p {
+      font-size: 0.87rem;
+      color: var(--muted);
+    }
+
+    .sidebar-card ul {
+      margin-top: 8px;
+    }
+
+    .sidebar-card li {
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+      color: #e5e7eb;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1><span>Amanda</span> &amp; [Partner Name]</h1>
+      <p>We’re so excited to celebrate with you.</p>
+      <div class="date-location">
+        <!-- TODO: replace with your actual date & city -->
+        June 2026 • Northern Ohio
+      </div>
+    </header>
+
+    <nav>
+      <ul class="nav-list">
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#venue">Venue</a></li>
+        <li><a href="#hotels">Hotels</a></li>
+        <li><a href="#dress-code">Dress Code</a></li>
+        <li><a href="#gifts">Gifts</a></li>
+        <li><a href="#rsvp">RSVP</a></li>
+        <li><a href="#afterparty">Afterparty</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- MAIN CONTENT COLUMN -->
+      <div>
+        <!-- 1. TIMELINE -->
+        <section id="timeline" class="card">
+          <div class="card-inner">
+            <h2>Wedding Day Timeline <span class="tag">The Plan</span></h2>
+            <p class="muted">Here’s how the day will flow. All times are approximate – we’re here to celebrate, not stress.</p>
+
+            <ul class="timeline-list" style="margin-top: 14px;">
+              <!-- TODO: replace examples with your real schedule -->
+              <li>
+                <div class="label-pill">
+                  <span class="time">4:00 PM</span> • Guest Arrival
+                </div>
+                <p>Doors open, grab a drink, find a seat, and say hi to familiar faces.</p>
+              </li>
+              <li>
+                <div class="label-pill">
+                  <span class="time">4:30 PM</span> • Ceremony
+                </div>
+                <p>We’ll walk down the aisle and say “I do.” Please plan to be seated by 4:20 PM.</p>
+              </li>
+              <li>
+                <div class="label-pill">
+                  <span class="time">5:00 PM</span> • Cocktail Hour
+                </div>
+                <p>Snacks, drinks, and mingling while we take a few photos.</p>
+              </li>
+              <li>
+                <div class="label-pill">
+                  <span class="time">6:00 PM</span> • Reception
+                </div>
+                <p>Dinner, speeches, and dancing. Expect great music and questionable dance moves.</p>
+              </li>
+              <li>
+                <div class="label-pill">
+                  <span class="time">10:30 PM</span> • Afterparty
+                </div>
+                <p>For anyone who isn’t ready to call it a night, join us at the afterparty spot just down the road.</p>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 2. VENUE -->
+        <section id="venue" class="card">
+          <div class="card-inner">
+            <h2>Venue <span class="tag">Where To Go</span></h2>
+
+            <!-- TODO: Replace with real venue info -->
+            <p class="small-heading">Ceremony &amp; Reception</p>
+            <p><span class="highlight">[Venue Name]</span></p>
+            <p class="hotel-address">[Street Address]<br>[City], [State] [ZIP]</p>
+
+            <div class="note-box">
+              <!-- Example note -->
+              Parking is available on-site. If you plan to drink, please consider using rideshare or carpooling.
+            </div>
+
+            <div class="btn-row">
+              <!-- TODO: Replace the Google Maps link with your actual venue coordinates/query -->
+              <a
+                class="btn btn-outline"
+                href="https://www.google.com/maps/search/?api=1&query=Venue+Name+City+State"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open in Google Maps
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. HOTEL OPTIONS -->
+        <section id="hotels" class="card">
+          <div class="card-inner">
+            <h2>Where To Stay <span class="tag">Hotels</span></h2>
+            <p class="muted">We’ve listed a few nearby options. Book early if you can—summer weekends fill up quickly.</p>
+
+            <ul class="hotel-list" style="margin-top: 14px;">
+              <!-- TODO: duplicate & customize these blocks for each hotel -->
+              <li>
+                <p class="hotel-name">[Hotel Option 1]</p>
+                <p class="hotel-address">[Street Address] • [City], [State]</p>
+                <p class="muted">Our notes: [e.g., “Closest to the venue, block of rooms reserved under ‘Berlin Wedding’ until May 1.”]</p>
+              </li>
+
+              <li>
+                <p class="hotel-name">[Hotel Option 2]</p>
+                <p class="hotel-address">[Street Address] • [City], [State]</p>
+                <p class="muted">Our notes: [e.g., “Slightly farther away but more budget-friendly.”]</p>
+              </li>
+
+              <li>
+                <p class="hotel-name">[Hotel Option 3]</p>
+                <p class="hotel-address">[Street Address] • [City], [State]</p>
+                <p class="muted">Our notes: [e.g., “Boutique vibe, small but cute, limited rooms.”]</p>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 4. DRESS CODE -->
+        <section id="dress-code" class="card">
+          <div class="card-inner">
+            <h2>Dress Code <span class="tag">What To Wear</span></h2>
+
+            <!-- TODO: customize to match your actual vibe (black-light, neon, etc.) -->
+            <p>
+              We’d describe our dress code as
+              <span class="highlight">[e.g., “cocktail / fun formal”]</span>.
+            </p>
+            <p style="margin-top: 8px;">
+              That means you’re welcome in dresses, jumpsuits, suits, dressy separates, or whatever feels festive and comfortable.
+              Please avoid anything you’d wear to the gym, a beach day, or a job interview.
+            </p>
+
+            <div class="note-box">
+              <!-- Example details -->
+              Have fun with color and personality—if it glows under a black light or looks great on a dance floor, even better.
+              Comfortable shoes are encouraged; we plan to dance.
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. GIFTS -->
+        <section id="gifts" class="card">
+          <div class="card-inner">
+            <h2>Gifts <span class="tag">Your Presence Is Enough</span></h2>
+
+            <p>
+              We’re getting married a little later in life, and between the two of us we already have
+              more than enough “stuff.” Your presence at our wedding truly is the only gift we need.
+            </p>
+
+            <p style="margin-top: 10px;">
+              If you would still like to celebrate us with a gift, we’d love for you to consider one of these options:
+            </p>
+
+            <ul style="margin-top: 10px;">
+              <li>
+                <span class="highlight">Support our favorite non-profit:</span>
+                <!-- TODO: replace with your actual non-profit link -->
+                <a href="YOUR_NONPROFIT_LINK_HERE" class="btn btn-outline" target="_blank" rel="noopener noreferrer"
+                  style="margin-top: 6px; display: inline-flex;">
+                  Donate to [Non-profit Name]
+                </a>
+              </li>
+              <li style="margin-top: 10px;">
+                <span class="highlight">Buy us a drink on our honeymoon:</span>
+                <!-- TODO: replace with your actual Venmo link or QR page -->
+                <a href="YOUR_VENMO_LINK_HERE" class="btn btn-outline" target="_blank" rel="noopener noreferrer"
+                  style="margin-top: 6px; display: inline-flex;">
+                  Send a little toast via Venmo
+                </a>
+              </li>
+            </ul>
+
+            <div class="note-box">
+              Either way—donation, drink, or just showing up—you’re part of our story, and that’s what matters most.
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. RSVP -->
+        <section id="rsvp" class="card">
+          <div class="card-inner">
+            <h2>RSVP <span class="tag">We Hope You Can Make It</span></h2>
+            <p>
+              Please take a moment to RSVP so we can plan food, drinks, and seating. If your plans change later,
+              you can update your response through the same link.
+            </p>
+
+            <div class="btn-row">
+              <a
+                href="https://app.save-date.com/savethedate.aspx?h=1E9FZ64056B8"
+                class="btn btn-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                RSVP to the Wedding
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. AFTERPARTY -->
+        <section id="afterparty" class="card">
+          <div class="card-inner">
+            <h2>Afterparty <span class="tag">Keep The Night Going</span></h2>
+
+            <!-- TODO: add actual afterparty location/details -->
+            <p>
+              For anyone who wants to keep celebrating after the reception wraps up, we’re hosting an
+              afterparty at <span class="highlight">[Afterparty Location Name]</span>.
+            </p>
+            <p style="margin-top: 6px;">
+              It’s just <span class="highlight">[distance / travel time]</span> from the venue. Feel free to change into
+              something more casual if you’d like.
+            </p>
+
+            <p class="small-heading">Afterparty RSVP</p>
+            <p class="muted">
+              Space is a bit more limited, so if you already know you’d like to join us, please RSVP here:
+            </p>
+
+            <div class="btn-row">
+              <a
+                href="https://app.save-date.com/CB90Z6F63580"
+                class="btn btn-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                RSVP to the Afterparty
+              </a>
+            </div>
+
+            <div class="note-box">
+              If you’re unsure right now, no worries—just come find us on the dance floor and we’ll make sure you know the plan.
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside>
+        <div class="sidebar-card">
+          <h3>Quick Details</h3>
+          <p class="muted">A handy snapshot for skimming.</p>
+
+          <ul style="margin-top: 10px;">
+            <!-- TODO: fill these in -->
+            <li><strong>Date:</strong> June [Day], 2026</li>
+            <li><strong>City:</strong> [City], Ohio</li>
+            <li><strong>Ceremony:</strong> [Venue Name]</li>
+            <li><strong>Reception:</strong> Same location</li>
+          </ul>
+
+          <p class="small-heading" style="margin-top: 14px;">Links</p>
+          <ul>
+            <li>Wedding RSVP</li>
+            <li>Afterparty RSVP</li>
+            <li>Hotel info &amp; notes</li>
+          </ul>
+
+          <p style="margin-top: 12px; font-size: 0.8rem;">
+            If you have any questions about travel, accessibility, or anything else,
+            please reach out to us directly.
+          </p>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      Made with love by Amanda &amp; [Partner Name]
+    </footer>
+  </div>
+</body>
+</html>
