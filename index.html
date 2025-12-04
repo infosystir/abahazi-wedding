@@ -31,15 +31,16 @@
     html {
       scroll-behavior: smooth;
     }
-a {
-  color: var(--accent); /* or any color you want */
-  text-decoration: underline;
-}
 
-a:hover {
-  color: #fbbf24; /* soft gold, looks nice on dark backgrounds */
-  text-decoration: none;
-}
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #fbbf24; /* soft gold, looks nice on dark backgrounds */
+      text-decoration: none;
+    }
 
     body {
       font-family: "Work Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -368,9 +369,8 @@ a:hover {
   <div class="page">
     <header>
       <h1><span>Matt</span> &amp; Amanda</h1>
-      <p>We’re so excited to celebrate with you.</p>
+      <p>We’re so excited to celebrate with you!</p>
       <div class="date-location">
-        <!-- TODO: replace with your actual date & city -->
         June 5th 2026 • Twin Oast Brewing, Catawba Ohio
       </div>
     </header>
@@ -379,11 +379,14 @@ a:hover {
       <ul class="nav-list">
         <li><a href="#timeline">Timeline</a></li>
         <li><a href="#venue">Venue</a></li>
+        <li><a href="#travel">Travel &amp; Directions</a></li>
         <li><a href="#hotels">Hotels</a></li>
         <li><a href="#dress-code">Dress Code</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#gifts">Gifts</a></li>
         <li><a href="#rsvp">RSVP</a></li>
         <li><a href="#afterparty">Day-Afterparty</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
 
@@ -397,7 +400,6 @@ a:hover {
             <p class="muted">Here’s how the day will flow. All times are approximate – we’re here to celebrate, not stress.</p>
 
             <ul class="timeline-list" style="margin-top: 14px;">
-              <!-- TODO: replace examples with your real schedule -->
               <li>
                 <div class="label-pill">
                   <span class="time">2:00 PM</span> • Guest Arrival
@@ -437,18 +439,15 @@ a:hover {
           <div class="card-inner">
             <h2>Venue <span class="tag">Where To Go</span></h2>
 
-            <!-- TODO: Replace with real venue info -->
             <p class="small-heading">Ceremony &amp; Reception</p>
             <p><span class="highlight">Twin Oast Brewing</span></p>
             <p class="hotel-address">3630 NE Catawba Rd<br>Port Clinton, Ohio 43452</p>
 
             <div class="note-box">
-              <!-- Example note -->
-              Parking is available on-site. If you plan to drink, please consider using rideshare or carpooling. Twin Oast does have a shuttle for close by locations
+              Parking is available on-site. If you plan to drink, please consider using rideshare or carpooling. Twin Oast does have a shuttle for close by locations.
             </div>
 
             <div class="btn-row">
-              <!-- TODO: Replace the Google Maps link with your actual venue coordinates/query -->
               <a
                 class="btn btn-outline"
                 href="https://www.google.com/maps/place/twin+oast+brewing/data=!4m2!3m1!1s0x883a52332c8cd9c7:0xb2cb47e6620757cf?sa=X&ved=1t:242&ictx=111"
@@ -461,6 +460,35 @@ a:hover {
           </div>
         </section>
 
+        <!-- NEW: TRAVEL & DIRECTIONS -->
+        <section id="travel" class="card">
+          <div class="card-inner">
+            <h2>Travel &amp; Directions <span class="tag">Getting There</span></h2>
+            <p class="muted">A few notes to make getting to Catawba a little easier.</p>
+
+            <p class="small-heading">By Car</p>
+            <p>
+              Twin Oast Brewing is just outside Port Clinton, Ohio. If you plug
+              <span class="highlight">“Twin Oast Brewing”</span> into your GPS, it should take you right there.
+              Give yourself a little extra time in case of summer traffic.
+            </p>
+
+            <p class="small-heading">Nearest Airports</p>
+            <ul>
+              <li><span class="highlight">Cleveland Hopkins (CLE):</span> About 1.5–2 hours by car, depending on traffic.</li>
+              <li><span class="highlight">Detroit Metro (DTW):</span> About 2 hours by car.</li>
+              <li><span class="highlight">Toledo Express (TOL):</span> Smaller airport, roughly 1–1.5 hours away.</li>
+            </ul>
+
+            <p class="small-heading">Parking &amp; Rideshare</p>
+            <p>
+              There is on-site parking at Twin Oast. If you’re staying at a nearby hotel, you may be able to use the
+              <span class="highlight">Twin Oast shuttle</span> or a rideshare service—just check availability in advance,
+              especially late at night.
+            </p>
+          </div>
+        </section>
+
         <!-- 3. HOTEL OPTIONS -->
         <section id="hotels" class="card">
           <div class="card-inner">
@@ -468,35 +496,34 @@ a:hover {
             <p class="muted">We’ve listed a few nearby options. Book early if you can—summer weekends fill up quickly.</p>
 
             <ul class="hotel-list" style="margin-top: 14px;">
-              <!-- TODO: duplicate & customize these blocks for each hotel -->
               <li>
-                <p class="hotel-name"><a href=https://www.hilton.com/en/hotels/tollshx-hampton-suites-port-clinton-catawba-island>Hampton Inn and Suites by Hilton Port Clinton Catawba Island</a></p>
+                <p class="hotel-name"><a href="https://www.hilton.com/en/hotels/tollshx-hampton-suites-port-clinton-catawba-island">Hampton Inn and Suites by Hilton Port Clinton Catawba Island</a></p>
                 <p class="hotel-address">57 NE Catawba Rd • Port Clinton, OH</p>
-                <p class="muted">Our notes: Ties for closest to the venue, brand new building, great mac and cheese place with a tiki bar in the plaza across the street</p>
+                <p class="muted">Our notes: Ties for closest to the venue, brand new building, great mac and cheese place with a tiki bar in the plaza across the street.</p>
               </li>
 
               <li>
-                <p class="hotel-name"><a href=https://www.ihg.com/holidayinnexpress/hotels/us/en/port-clinton/csdoh/hoteldetail?cm_mmc=GoogleMaps-_-EX-_-US-_-CSDOH>Holiday Inn Express & Suites Port Clinton-Catawba Island by IHG</a></p>
+                <p class="hotel-name"><a href="https://www.ihg.com/holidayinnexpress/hotels/us/en/port-clinton/csdoh/hoteldetail?cm_mmc=GoogleMaps-_-EX-_-US-_-CSDOH">Holiday Inn Express &amp; Suites Port Clinton-Catawba Island by IHG</a></p>
                 <p class="hotel-address">50 NE Catawba Rd • Port Clinton, OH</p>
-                <p class="muted">Our notes: Ties for closest to the venue, close to restaurants</p>
+                <p class="muted">Our notes: Ties for closest to the venue, close to restaurants.</p>
               </li>
 
               <li>
-                <p class="hotel-name"><a href=https://www.wavemarblehead.com/>The Wave at Marblehead</a></p>
+                <p class="hotel-name"><a href="https://www.wavemarblehead.com/">The Wave at Marblehead</a></p>
                 <p class="hotel-address">614 E Main St • Lakeside Marblehead, OH</p>
-                <p class="muted">Our notes: Boutique vibe, beautiful scenery, on site restaurant, a little further away from the venue</p>
+                <p class="muted">Our notes: Boutique vibe, beautiful scenery, on-site restaurant, a little further away from the venue.</p>
               </li>
 
               <li>
-                <p class="hotel-name"><a href=https://www.marriott.com/en-us/hotels/tolfc-fairfield-inn-and-suites-port-clinton-waterfront/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0> Fairfield by Marriott Inn & Suites Port Clinton Waterfront</a></p>
+                <p class="hotel-name"><a href="https://www.marriott.com/en-us/hotels/tolfc-fairfield-inn-and-suites-port-clinton-waterfront/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0">Fairfield by Marriott Inn &amp; Suites Port Clinton Waterfront</a></p>
                 <p class="hotel-address">1811 E Perry St • Port Clinton, OH</p>
-                <p class="muted">Our notes: In Port Clinton proper, walking distance to Jolly Rogers (amazing perch), really close to bowling after party</p>
+                <p class="muted">Our notes: In Port Clinton proper, walking distance to Jolly Rogers (amazing perch), really close to bowling after party.</p>
               </li>
 
               <li>
-                <p class="hotel-name"><a href=https://www.choicehotels.com/ohio/port-clinton/country-inn-suites-hotels/oh558?mc=llgoxxpx>Country Inn & Suites by Radisson, Port Clinton, OH</a></p>
+                <p class="hotel-name"><a href="https://www.choicehotels.com/ohio/port-clinton/country-inn-suites-hotels/oh558?mc=llgoxxpx">Country Inn &amp; Suites by Radisson, Port Clinton, OH</a></p>
                 <p class="hotel-address">3760 E State Rd • Port Clinton, OH</p>
-                <p class="muted">Our notes: Close to the highway, great mexican and coffee across the street</p>
+                <p class="muted">Our notes: Close to the highway, great Mexican and coffee across the street.</p>
               </li>
             </ul>
           </div>
@@ -507,7 +534,6 @@ a:hover {
           <div class="card-inner">
             <h2>Dress Code <span class="tag">What To Wear</span></h2>
 
-            <!-- TODO: customize to match your actual vibe (black-light, neon, etc.) -->
             <p>
               We’d describe our dress code as
               <span class="highlight">fun formal</span>.
@@ -518,10 +544,53 @@ a:hover {
             </p>
 
             <div class="note-box">
-              <!-- Example details -->
               Have fun with color and personality—if it glows under a black light or looks great on a dance floor, even better.
-              Comfortable shoes are encouraged; we plan to dance.
+              Comfortable shoes are encouraged; the venue is outside.
             </div>
+          </div>
+        </section>
+
+        <!-- NEW: FAQ -->
+        <section id="faq" class="card">
+          <div class="card-inner">
+            <h2>FAQ <span class="tag">Good To Know</span></h2>
+
+            <ul style="margin-top: 10px;">
+              <li>
+                <p><span class="highlight">Are kids invited?</span></p>
+                <p class="muted">
+                 They are welcome but not required! The venue has a large area to run around and play, but if you want to come by yourself we're ok with that too! 
+                </p>
+              </li>
+
+              <li style="margin-top: 10px;">
+                <p><span class="highlight">What about dietary restrictions?</span></p>
+                <p class="muted">
+                  We will have vegetarian and gluten free options available at the food truck we're providing. The venue also has a full restaurant for a secondary option.
+                </p>
+              </li>
+
+              <li style="margin-top: 10px;">
+                <p><span class="highlight">Will there be alcohol?</span></p>
+                <p class="muted">
+                  Yes! Twin Oast is a brewery, so there will be great beer along with other drink options. Please plan a safe way to get back to your hotel.
+                </p>
+              </li>
+
+              <li style="margin-top: 10px;">
+                <p><span class="highlight">Can we take photos / post on social?</span></p>
+                <p class="muted">
+                  Please feel free to take photos and share them! We just ask that you stay present during the ceremony and avoid blocking the photographer.
+                </p>
+              </li>
+
+              <li style="margin-top: 10px;">
+                <p><span class="highlight">Is everything at the same location?</span></p>
+                <p class="muted">
+                  The ceremony and reception are both at Twin Oast Brewing. The day-afterparty will be at Twin Star Bowling Alley in Port Clinton.
+                </p>
+              </li>
+            </ul>
           </div>
         </section>
 
@@ -542,15 +611,13 @@ a:hover {
             <ul style="margin-top: 10px;">
               <li>
                 <span class="highlight">Support non-profit Mental Health Hackers:</span>
-                <!-- TODO: replace with your actual non-profit link -->
                 <a href="https://www.mentalhealthhackers.org/" class="btn btn-outline" target="_blank" rel="noopener noreferrer"
                   style="margin-top: 6px; display: inline-flex;">
-                Donate to MHH
+                  Donate to MHH
                 </a>
               </li>
               <li style="margin-top: 10px;">
                 <span class="highlight">Buy us a drink on our honeymoon:</span>
-                <!-- TODO: replace with your actual Venmo link or QR page -->
                 <a href="https://venmo.com/infosystir" class="btn btn-outline" target="_blank" rel="noopener noreferrer"
                   style="margin-top: 6px; display: inline-flex;">
                   Send a toast via Venmo
@@ -591,13 +658,12 @@ a:hover {
           <div class="card-inner">
             <h2>Day-Afterparty <span class="tag">Next Day Keep the party going</span></h2>
 
-            <!-- TODO: add actual afterparty location/details -->
             <p>
               For anyone who wants to keep celebrating the next day, we’re hosting an
-              afterparty at <span class="highlight"><a href ="https://twinstarcenters.com/port-clinton">Twin Star Bowling Alley</a></span> for 3 hours!
+              afterparty at <span class="highlight"><a href="https://twinstarcenters.com/port-clinton">Twin Star Bowling Alley</a></span> for 3 hours!
             </p>
             <p style="margin-top: 6px;">
-              We'll cover the bowling, but there is also axe throwing, a full arcade, food, and drinks for purchse
+              We'll cover the bowling, but there is also axe throwing, a full arcade, food, and drinks for purchase.
             </p>
 
             <p class="small-heading">Day-Afterparty RSVP</p>
@@ -621,6 +687,34 @@ a:hover {
             </div>
           </div>
         </section>
+
+        <!-- NEW: CONTACT INFO -->
+        <section id="contact" class="card">
+          <div class="card-inner">
+            <h2>Contact <span class="tag">Questions?</span></h2>
+            <p>
+              If you have any questions about travel, accessibility, schedules, or anything else,
+              feel free to reach out.
+            </p>
+
+            <ul style="margin-top: 10px;">
+              <li>
+                <span class="highlight">Email:</span>
+                <!-- Replace with the best email for guests -->
+                <a href="mailto:amanda.c.berlin@gmail.com">amanda.c.berlin@gmail.com</a>
+              </li>
+              <li style="margin-top: 6px;">
+                <span class="highlight">Phone / Text:</span>
+                <!-- Replace with whoever is okay being contacted -->
+                810-599-0879
+              </li>
+              <li style="margin-top: 6px;">
+                <span class="highlight">Day-of contact:</span>
+                Erin Cassel Idnani: 615-498-7675 
+              </li>
+            </ul>
+          </div>
+        </section>
       </div>
 
       <!-- SIDEBAR -->
@@ -630,7 +724,6 @@ a:hover {
           <p class="muted">A handy snapshot for skimming.</p>
 
           <ul style="margin-top: 10px;">
-            <!-- TODO: fill these in -->
             <li><strong>Date:</strong> June 5th, 2026</li>
             <li><strong>City:</strong> Catawba, Ohio</li>
             <li><strong>Ceremony:</strong> Twin Oast Brewing</li>
@@ -639,8 +732,11 @@ a:hover {
 
           <p class="small-heading" style="margin-top: 14px;">Links</p>
           <ul>
-            <li><a href=https://app.save-date.com/savethedate.aspx?h=1E9FZ64056B8>Wedding RSVP</a></li>
-            <li><a href=https://app.save-date.com/CB90Z6F63580>Day-Afterparty RSVP</a></li>
+            <li><a href="#travel">Travel &amp; Directions</a></li>
+            <li><a href="https://app.save-date.com/savethedate.aspx?h=1E9FZ64056B8">Wedding RSVP</a></li>
+            <li><a href="https://app.save-date.com/CB90Z6F63580">Day-Afterparty RSVP</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
 
           <p style="margin-top: 12px; font-size: 0.8rem;">
